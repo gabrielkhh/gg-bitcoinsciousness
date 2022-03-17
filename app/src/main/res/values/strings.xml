@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BitcoinSciousness</string>
+    <string name="noti_title">BTCoinSchiousness Notification</string>
+    <string name="shutdown">SHUTDOWN</string>
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="date">Date</string>
+    <string name="open">Open</string>
+    <string name="high">High</string>
+    <string name="low">Low</string>
+    <string name="close">Close</string>
+    <string name="volume">Volume</string>
+</resources>
