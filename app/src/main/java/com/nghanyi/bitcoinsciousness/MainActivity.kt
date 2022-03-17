@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by CoroutineScope(Dispa
     private var startStream = true
     private var current10MA: Double = 0.0
     private var previous10MA: Double = 0.0
-    private var delay: Int = INITIAL_VALUE
+    private var freq: Int = INITIAL_VALUE
 
     private val serviceConnection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName, service: IBinder) {
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by CoroutineScope(Dispa
             while (true) {
                 if (isBounded && startStream) {
                     if (index == streamService.priceList.size) break
-                    delay(delay.toLong())
+                    delay(freq.toLong())
 
                     val currentPrice = streamService.priceList[index++]
                     priceListData.add(currentPrice)
@@ -170,7 +170,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by CoroutineScope(Dispa
         binding.freqPicker.displayedValues = values
         binding.freqPicker.wrapSelectorWheel = false
         binding.freqPicker.setOnValueChangedListener { _, _, newVal ->
-            delay = values[newVal].toInt()
+            freq = values[newVal].toInt()
             Log.d(TAG, "new interval: ${values[newVal]}")
         }
     }

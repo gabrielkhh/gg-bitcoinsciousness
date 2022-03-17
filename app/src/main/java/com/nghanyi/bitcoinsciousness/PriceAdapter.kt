@@ -7,9 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class PriceAdapter(private val data: List<Price>): RecyclerView.Adapter<PriceAdapter.ViewHolder>() {
 
-    private var TYPE_HEADER = 0
-    private var TYPE_ITEM = 1
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = View.inflate(parent.context, R.layout.item_row, null)
         return ViewHolder(view)
@@ -17,13 +14,6 @@ class PriceAdapter(private val data: List<Price>): RecyclerView.Adapter<PriceAda
 
     override fun getItemCount(): Int {
         return data.size
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        if (position == 0) {
-            return TYPE_HEADER
-        }
-        return TYPE_ITEM
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
