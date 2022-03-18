@@ -9,6 +9,8 @@ class PriceAdapter(private val data: List<Price>): RecyclerView.Adapter<PriceAda
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = View.inflate(parent.context, R.layout.item_row, null)
+        val lp = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        view.layoutParams = lp
         return ViewHolder(view)
     }
 
