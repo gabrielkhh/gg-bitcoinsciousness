@@ -1,6 +1,7 @@
 package com.nghanyi.bitcoinsciousness
 
 import android.app.*
+import android.app.PendingIntent.FLAG_MUTABLE
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -63,7 +64,7 @@ class NotiService : Service(), CoroutineScope by CoroutineScope(Dispatchers.Defa
             applicationContext,
             0,
             Intent(applicationContext, MainActivity::class.java),
-            PendingIntent.FLAG_UPDATE_CURRENT
+            FLAG_MUTABLE
         )
 
         notificationBuilder = NotificationCompat.Builder(this, channelId)
@@ -108,8 +109,8 @@ class NotiService : Service(), CoroutineScope by CoroutineScope(Dispatchers.Defa
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel(channelId: String, channelName: String): String {
         val channel = NotificationChannel(channelId,
-        channelName, NotificationManager.IMPORTANCE_NONE)
-        channel.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
+        channelName, NotificationManager.IMPORTANCE_DEFAULT)
+//        channel.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
         val service = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         service.createNotificationChannel(channel)
         return channelId
